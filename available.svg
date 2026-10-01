@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
+  <defs>
+    <linearGradient id="skin" x1="38" y1="34" x2="75" y2="74" gradientUnits="userSpaceOnUse"><stop stop-color="#F5D8B7"/><stop offset="1" stop-color="#D9A57C"/></linearGradient>
+    <linearGradient id="cloth" x1="44" y1="72" x2="98" y2="111" gradientUnits="userSpaceOnUse"><stop stop-color="#A74B56"/><stop offset="1" stop-color="#672838"/></linearGradient>
+    <pattern id="jarik" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#614035"/><path d="M0 6 6 0l6 6-6 6L0 6Z" stroke="#D7B95C" stroke-opacity=".75" stroke-width=".8"/><circle cx="6" cy="6" r="1" fill="#F1E0BE"/></pattern>
+    <filter id="shadow" x="15" y="8" width="130" height="150" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#4A2C24" flood-opacity=".18"/></filter>
+  </defs>
+  <style>
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    .figure-motion { transform-box: fill-box; transform-origin: center; animation: float 3.2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .figure-motion { animation: none; } }
+  </style>
+  <ellipse cx="79" cy="145" rx="42" ry="7" fill="#4A2C24" fill-opacity=".12"/>
+  <g class="figure-motion" filter="url(#shadow)">
+    <path d="M41 102q0-25 13-34l12-5 13 7 13-7 12 8q7 14 7 31l-13 8H53l-12-8Z" fill="url(#cloth)"/><path d="m65 66 11 9 9-9 5 8-14 13-17-13 6-8Z" fill="#F2DAB5"/><path d="M76 77v28" stroke="#D2AE54" stroke-width="2"/>
+    <path d="M52 101q24 8 48 0l10 38q-34 10-69 0l11-38Z" fill="url(#jarik)" stroke="#C9A227" stroke-width="1.5"/><path d="M62 111 56 140m28-29 8 29" stroke="#E4C979" stroke-opacity=".7" stroke-width="1.2"/>
+    <path d="M50 77 37 97q-3 6 2 8t8-4l12-15m43-9q13 3 20 16 3 5-2 8t-8-3L99 88" stroke="url(#skin)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M55 36q0-19 21-19 22 0 22 21v8H55v-10Z" fill="#30251F"/><circle cx="77" cy="47" r="20" fill="url(#skin)"/><path d="M57 43q2-25 23-25 13 0 18 12-9-5-16-4-11 2-25 17Z" fill="#30251F"/><circle cx="71" cy="47" r="1.7" fill="#392821"/><circle cx="84" cy="47" r="1.7" fill="#392821"/><path d="M73 56q4 3 8 0" stroke="#9C5D4C" stroke-width="1.7" stroke-linecap="round"/>
+    <circle cx="98" cy="24" r="7" fill="#30251F"/><path d="m88 34 11-10 12-10" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round"/><circle cx="113" cy="12" r="4" fill="#E2C15B"/><circle cx="99" cy="22" r="3" fill="#F4DE99"/>
+    <path d="M22 83h17M27 78l-5 5 5 5" stroke="#C9A227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M124 53h15v25h-15z" fill="#F0E3CD" stroke="#9A7551" stroke-width="1.5"/><path d="M128 59h7m-7 5h7m-7 5h5" stroke="#A78249" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg>

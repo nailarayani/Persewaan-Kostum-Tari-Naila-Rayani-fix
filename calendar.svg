@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
+  <defs>
+    <linearGradient id="skin" x1="43" y1="30" x2="77" y2="68" gradientUnits="userSpaceOnUse"><stop stop-color="#F5D8B7"/><stop offset="1" stop-color="#D9A57C"/></linearGradient>
+    <linearGradient id="cloth" x1="31" y1="72" x2="91" y2="121" gradientUnits="userSpaceOnUse"><stop stop-color="#A64A55"/><stop offset="1" stop-color="#612735"/></linearGradient>
+    <filter id="shadow" x="9" y="6" width="145" height="151" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#4A2C24" flood-opacity=".18"/></filter>
+  </defs>
+  <style>
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    .figure-motion { transform-box: fill-box; transform-origin: center; animation: float 3.2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .figure-motion { animation: none; } }
+  </style>
+  <ellipse cx="78" cy="145" rx="48" ry="7" fill="#4A2C24" fill-opacity=".12"/>
+  <g class="figure-motion" filter="url(#shadow)">
+    <path d="M83 45h57v72H83z" rx="7" fill="#FBF5E9" stroke="#A67A4F" stroke-width="2"/><path d="M83 54h57v13H83z" fill="#7A2635"/><path d="M95 42v10m32-10v10" stroke="#C9A227" stroke-width="3" stroke-linecap="round"/><path d="M94 79h8m7 0h8m7 0h7m-37 12h8m7 0h8m7 0h7m-37 12h8m7 0h8" stroke="#B49B72" stroke-width="2" stroke-linecap="round"/><circle cx="127" cy="103" r="5" fill="#C9A227"/>
+    <path d="M34 108q2-25 14-34l12-5 12 7 13-7 10 8q5 14 3 31l-12 8H46l-12-8Z" fill="url(#cloth)"/><path d="m58 69 10 8 9-8 5 8-14 12-16-12 6-8Z" fill="#F2DAB5"/>
+    <path d="M47 106q22 8 44 0l8 33q-30 9-63 0l11-33Z" fill="#604035"/><path d="M49 111 92 135m-2-29-35 33" stroke="#D7B95C" stroke-opacity=".75" stroke-width="1.4"/>
+    <path d="M49 77 37 93q-4 5 1 8t8-3l13-14m41-7q12 2 16 12 2 6-3 8t-8-4l-8-9" stroke="url(#skin)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M51 35q0-18 21-18 21 0 21 21v8H51V35Z" fill="#30251F"/><circle cx="73" cy="47" r="19" fill="url(#skin)"/><path d="M54 43q2-24 22-24 13 0 17 12-9-5-16-4-10 2-23 16Z" fill="#30251F"/><circle cx="67" cy="47" r="1.6" fill="#392821"/><circle cx="80" cy="47" r="1.6" fill="#392821"/><path d="M69 55q4 3 8 0" stroke="#9C5D4C" stroke-width="1.6" stroke-linecap="round"/><circle cx="94" cy="23" r="6" fill="#30251F"/><path d="m84 32 10-9 11-9" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/><circle cx="108" cy="13" r="3.5" fill="#E2C15B"/>
+  </g>
+</svg>

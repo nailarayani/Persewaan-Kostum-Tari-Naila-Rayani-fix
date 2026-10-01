@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
+  <defs>
+    <linearGradient id="skin" x1="48" y1="25" x2="89" y2="76" gradientUnits="userSpaceOnUse"><stop stop-color="#F5D8B7"/><stop offset="1" stop-color="#D9A57C"/></linearGradient>
+    <linearGradient id="cloth" x1="42" y1="72" x2="112" y2="139" gradientUnits="userSpaceOnUse"><stop stop-color="#A64A55"/><stop offset="1" stop-color="#602532"/></linearGradient>
+    <pattern id="jarik" width="11" height="11" patternUnits="userSpaceOnUse"><rect width="11" height="11" fill="#594036"/><path d="M0 5.5 5.5 0 11 5.5 5.5 11 0 5.5Z" stroke="#D7B95C" stroke-opacity=".7" stroke-width=".7"/></pattern>
+    <filter id="shadow" x="15" y="7" width="130" height="150" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#4A2C24" flood-opacity=".18"/></filter>
+  </defs>
+  <style>
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    .figure-motion { transform-box: fill-box; transform-origin: center; animation: float 3.2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .figure-motion { animation: none; } }
+  </style>
+  <ellipse cx="80" cy="144" rx="43" ry="7" fill="#4A2C24" fill-opacity=".12"/>
+  <g class="figure-motion" filter="url(#shadow)">
+    <path d="M39 137q1-37 17-51l13-6 11 7 13-7 13 8q13 15 14 49H39Z" fill="url(#cloth)"/><path d="m68 81 10 8 11-8 6 8-16 14-17-14 6-8Z" fill="#F2DAB5"/><path d="M78 91v43" stroke="#D2AE54" stroke-width="2"/>
+    <path d="M52 112q26 8 51 0l7 26H45l7-26Z" fill="url(#jarik)" stroke="#C9A227" stroke-width="1.2"/>
+    <path d="M56 32q0-20 23-20 24 0 24 23v11H56V32Z" fill="#30251F"/><circle cx="79" cy="48" r="21" fill="url(#skin)"/><path d="M58 44q2-27 24-27 15 0 20 13-12-5-21-3-12 2-23 17Z" fill="#30251F"/><circle cx="72" cy="48" r="1.8" fill="#392821"/><circle cx="86" cy="48" r="1.8" fill="#392821"/><path d="M74 57q4 3 9 0" stroke="#9C5D4C" stroke-width="1.7" stroke-linecap="round"/>
+    <circle cx="101" cy="25" r="7" fill="#30251F"/><path d="m91 35 11-10 12-10" stroke="#C9A227" stroke-width="2.2" stroke-linecap="round"/><circle cx="116" cy="14" r="4" fill="#E2C15B"/>
+    <path d="M33 78q-9 13-7 29" stroke="#D9A57C" stroke-width="8" stroke-linecap="round"/><path d="M124 78q8 11 9 27" stroke="#D9A57C" stroke-width="8" stroke-linecap="round"/>
+    <path d="M24 115q14-8 27 0v17q-13 7-27 0v-17Z" fill="#F0E3CD" stroke="#B18B2C" stroke-width="1.5"/><path d="M30 120h15m-15 5h12" stroke="#7A2635" stroke-width="1.3" stroke-linecap="round"/>
+  </g>
+</svg>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F7F2E8">
+    <title>Ruang Tari | Persediaan Kostum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#dashboard" aria-label="Ruang Tari beranda">
+          <span class="brand-mark">RT</span>
+          <span><strong>RUANG TARI</strong><small>Studio &amp; Kostum</small></span>
+        </a>
+        <div class="side-label">MENU UTAMA</div>
+        <nav aria-label="Navigasi utama">
+          <a class="nav-link active" href="#dashboard"><img class="nav-art" src="./assets/illustrations/transaction.svg" alt="">Ringkasan</a>
+          <a class="nav-link" href="#inventory"><img class="nav-art" src="./assets/illustrations/costume.svg" alt="">Persediaan</a>
+          <a class="nav-link" href="#rentals"><img class="nav-art" src="./assets/illustrations/calendar.svg" alt="">Penyewaan<span class="nav-count" id="nav-active-count">0</span></a>
+          <a class="nav-link" href="#customers"><img class="nav-art" src="./assets/illustrations/customer.svg" alt="">Pelanggan</a>
+          <a class="nav-link" href="#history"><img class="nav-art" src="./assets/illustrations/history.svg" alt="">Riwayat transaksi</a>
+        </nav>
+        <div class="side-label operational-label">OPERASIONAL</div>
+        <nav aria-label="Menu operasional">
+          <a class="nav-link" href="#outgoing"><img class="nav-art" src="./assets/illustrations/outgoing.svg" alt="">Kostum keluar</a>
+          <a class="nav-link" href="#returns"><img class="nav-art" src="./assets/illustrations/returning.svg" alt="">Kostum kembali</a>
+          <a class="nav-link" href="#conditions"><img class="nav-art" src="./assets/illustrations/maintenance.svg" alt="">Kondisi kostum</a>
+        </nav>
+        <div class="sidebar-note">
+          <span class="note-mark" aria-hidden="true"></span>
+          <p>Merawat warisan, menata setiap koleksi.</p>
+        </div>
+        <div class="profile">
+          <span class="avatar">RT</span>
+          <span><strong>Pengelola</strong><small>Studio Ruang Tari</small></span>
+          <span class="profile-dots">···</span>
+        </div>
+      </aside>
+
+      <main class="main-content" id="dashboard">
+        <header class="topbar">
+          <button class="mobile-menu-button" id="sidebar-toggle" type="button" aria-label="Buka navigasi"><span class="menu-mark" aria-hidden="true"></span></button>
+          <div class="breadcrumb">RUANG TARI <span>/</span> <strong id="breadcrumb-title">Ringkasan</strong></div>
+          <div class="top-actions">
+            <span class="today-label" id="today-label"></span>
+            <button class="button button-dark" id="new-rental-button" type="button"><img class="button-art" src="./assets/illustrations/calendar.svg" alt=""> Sewa kostum</button>
+          </div>
+        </header>
+
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow">STUDIO KOSTUM NUSANTARA</p>
+            <h1>Selamat datang kembali.</h1>
+            <p class="heading-copy">Pantau koleksi kostum, transaksi penyewaan, dan kondisi kostum studio.</p>
+          </div>
+          <button class="button button-outline" id="new-costume-button" type="button"><span class="plus-mark" aria-hidden="true">+</span> Tambah kostum</button>
+        </section>
+
+        <section class="metrics" aria-label="Ringkasan persediaan">
+          <article class="metric-card metric-highlight">
+            <div class="metric-top"><span>Total kostum</span><img class="metric-illustration" src="./assets/illustrations/costume.svg" alt="Miniatur penari Jawa berkebaya dan jarik di samping koleksi kostum"></div>
+            <strong class="metric-value" id="metric-costumes">—</strong>
+            <span class="metric-foot">unit dalam koleksi</span>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span>Tersedia</span><img class="metric-illustration" src="./assets/illustrations/available.svg" alt="Penari Jawa siap tampil dengan koleksi kostum tersedia"></div>
+            <strong class="metric-value" id="metric-available">—</strong>
+            <span class="metric-foot">siap untuk disewa</span>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span>Sedang disewa</span><img class="metric-illustration" src="./assets/illustrations/rented.svg" alt="Penari Jawa membawa kain kostum yang sedang disewa"></div>
+            <strong class="metric-value" id="metric-rentals">—</strong>
+            <span class="metric-foot">unit dalam transaksi aktif</span>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span>Perlu dikembalikan</span><img class="metric-illustration" src="./assets/illustrations/calendar.svg" alt="Karakter Jawa memegang jadwal pengembalian"></div>
+            <strong class="metric-value" id="metric-due">—</strong>
+            <span class="metric-foot" id="metric-due-foot">jatuh tempo hari ini atau lewat</span>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top"><span>Perlu perawatan</span><img class="metric-illustration" src="./assets/illustrations/maintenance.svg" alt="Karakter Jawa sedang merapikan kain jarik"></div>
+            <strong class="metric-value" id="metric-maintenance">—</strong>
+            <span class="metric-foot">unit ditandai perlu perawatan</span>
+          </article>
+        </section>
+
+        <section class="panel flow-panel" aria-labelledby="flow-title">
+          <div class="panel-heading">
+            <div><p class="eyebrow">MONITORING HARIAN</p><h2 id="flow-title">Alur kostum hari ini</h2></div>
+            <span class="data-note">Berdasarkan transaksi Supabase</span>
+          </div>
+          <div class="costume-flow">
+            <article class="flow-step"><span class="flow-icon"><img src="./assets/illustrations/available.svg" alt=""></span><span class="flow-copy"><small>TERSEDIA</small><strong id="flow-available">—</strong><em>unit siap sewa</em></span></article>
+            <span class="flow-connector" aria-hidden="true"></span>
+            <article class="flow-step"><span class="flow-icon"><img src="./assets/illustrations/rented.svg" alt=""></span><span class="flow-copy"><small>DISEWA</small><strong id="flow-rented">—</strong><em>unit transaksi aktif</em></span></article>
+            <span class="flow-connector" aria-hidden="true"></span>
+            <article class="flow-step"><span class="flow-icon"><img src="./assets/illustrations/outgoing.svg" alt=""></span><span class="flow-copy"><small>KELUAR STUDIO</small><strong id="flow-out">—</strong><em>mulai hari ini atau sebelumnya</em></span></article>
+            <span class="flow-connector" aria-hidden="true"></span>
+            <article class="flow-step"><span class="flow-icon"><img src="./assets/illustrations/rented.svg" alt=""></span><span class="flow-copy"><small>SEDANG DIGUNAKAN</small><strong id="flow-in-use">—</strong><em>tidak dibedakan di skema</em></span></article>
+            <span class="flow-connector" aria-hidden="true"></span>
+            <article class="flow-step"><span class="flow-icon"><img src="./assets/illustrations/returning.svg" alt=""></span><span class="flow-copy"><small>DIKEMBALIKAN HARI INI</small><strong id="flow-returned">—</strong><em>unit transaksi selesai</em></span></article>
+            <span class="flow-connector" aria-hidden="true"></span>
+            <article class="flow-step flow-untracked"><span class="flow-icon"><img src="./assets/illustrations/maintenance.svg" alt=""></span><span class="flow-copy"><small>PEMERIKSAAN</small><strong id="flow-inspection">—</strong><em>belum dicatat di database</em></span></article>
+            <span class="flow-connector" aria-hidden="true"></span>
+            <article class="flow-step"><span class="flow-icon"><img src="./assets/illustrations/available.svg" alt=""></span><span class="flow-copy"><small>KEMBALI TERSEDIA</small><strong id="flow-ready">—</strong><em>unit saat ini siap disewa</em></span></article>
+          </div>
+        </section>
+
+        <section class="workspace-grid">
+          <article class="panel inventory-panel" id="inventory-preview">
+            <div class="panel-heading">
+              <div><p class="eyebrow">KOLEKSI STUDIO</p><h2>Persediaan kostum</h2></div>
+              <a class="text-button" href="#inventory">Lihat semua</a>
+            </div>
+            <div class="table-tools">
+              <label class="search-box"><span class="search-mark" aria-hidden="true"></span><input id="costume-search" type="search" placeholder="Cari kostum atau kategori" aria-label="Cari kostum"></label>
+              <select id="category-filter" aria-label="Filter kategori"><option value="">Kategori</option></select>
+              <select id="size-filter" aria-label="Filter ukuran"><option value="">Ukuran</option></select>
+              <select id="condition-filter" aria-label="Filter kondisi"><option value="">Kondisi</option></select>
+              <select id="sort-filter" aria-label="Urutkan kostum"><option value="name">Nama A–Z</option><option value="stock">Stok terbanyak</option><option value="rate">Tarif tertinggi</option></select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>NAMA KOSTUM</th><th>KATEGORI / UKURAN</th><th>KONDISI</th><th>TERSEDIA</th><th>TARIF / HARI</th><th>AKSI</th></tr></thead>
+                <tbody id="costume-rows"><tr><td colspan="6" class="table-message">Memuat koleksi...</td></tr></tbody>
+              </table>
+            </div>
+            <div class="panel-footer pagination"><span id="inventory-count">0 koleksi</span><div><button class="page-button" id="page-prev" type="button" aria-label="Halaman sebelumnya">Sebelumnya</button><span id="page-label">1 / 1</span><button class="page-button" id="page-next" type="button" aria-label="Halaman berikutnya">Berikutnya</button></div></div>
+          </article>
+
+          <article class="panel rentals-panel" id="rentals">
+            <div class="panel-heading">
+              <div><p class="eyebrow">AKTIVITAS TERBARU</p><h2>Penyewaan</h2></div>
+              <a class="count-pill" href="#outgoing" id="rental-count-pill">0 aktif</a>
+            </div>
+            <div class="rental-list" id="rental-list"><div class="table-message">Memuat penyewaan...</div></div>
+            <div class="panel-footer"><span>Riwayat transaksi studio</span><button class="text-button" id="refresh-button" type="button">Muat ulang</button></div>
+          </article>
+        </section>
+
+        <section class="panel section-panel" id="inventory">
+          <div class="panel-heading"><div><p class="eyebrow">KATALOG STUDIO</p><h2>Semua persediaan</h2></div><button class="button button-outline button-small" type="button" data-open-costume><span class="plus-mark" aria-hidden="true">+</span> Tambah kostum</button></div>
+          <p class="section-description">Kelola koleksi dan kondisi stok. Status stok dihitung dari jumlah unit pada kostum dan transaksi aktif.</p>
+          <div class="table-wrap"><table><thead><tr><th>NAMA KOSTUM</th><th>KATEGORI</th><th>UKURAN</th><th>KONDISI</th><th>STOK TERSEDIA</th><th>TARIF / HARI</th><th>AKSI</th></tr></thead><tbody id="inventory-all-rows"></tbody></table></div>
+        </section>
+
+        <section class="panel section-panel" id="outgoing">
+          <div class="panel-heading"><div><p class="eyebrow">OPERASIONAL</p><h2>Kostum keluar</h2></div><span class="count-pill" id="outgoing-count">0 transaksi</span></div>
+          <div class="table-tools"><label class="search-box"><span class="search-mark" aria-hidden="true"></span><input type="search" id="outgoing-search" placeholder="Cari transaksi atau penyewa" aria-label="Cari kostum keluar"></label><select id="outgoing-filter" aria-label="Filter transaksi keluar"><option value="all">Semua status</option><option value="today">Hari ini</option><option value="upcoming">Akan keluar</option><option value="active">Sedang dipinjam</option><option value="overdue">Terlambat</option></select></div>
+          <div class="table-wrap"><table><thead><tr><th>ID TRANSAKSI</th><th>PENYEWA</th><th>KOSTUM</th><th>JUMLAH</th><th>TANGGAL KELUAR</th><th>RENCANA KEMBALI</th><th>STATUS</th><th>AKSI</th></tr></thead><tbody id="outgoing-rows"></tbody></table></div>
+        </section>
+
+        <section class="lower-grid">
+          <article class="panel section-panel" id="returns">
+            <div class="panel-heading"><div><p class="eyebrow">PENGEMBALIAN</p><h2>Kostum kembali</h2></div><img src="./assets/illustrations/returning.svg" alt="Ilustrasi pengembalian jarik" class="section-illustration"></div>
+            <p class="section-description">Pilih transaksi aktif untuk menandainya selesai. Kondisi setelah kembali belum disimpan oleh skema database saat ini.</p>
+            <div class="return-queue" id="return-queue"></div>
+          </article>
+          <article class="panel section-panel" id="conditions">
+            <div class="panel-heading"><div><p class="eyebrow">PERAWATAN</p><h2>Kondisi kostum</h2></div><img src="./assets/illustrations/maintenance.svg" alt="Ilustrasi merapikan jarik" class="section-illustration"></div>
+            <p class="section-description">Status kondisi yang tersedia saat ini mengikuti nilai di Supabase.</p>
+            <div class="condition-summary" id="condition-summary"></div>
+          </article>
+        </section>
+
+        <section class="lower-grid">
+          <article class="panel section-panel" id="customers">
+            <div class="panel-heading"><div><p class="eyebrow">KOMUNITAS STUDIO</p><h2>Pelanggan</h2></div><div class="heading-art-count"><img src="./assets/illustrations/customer.svg" alt="Ilustrasi pelanggan Jawa" class="section-illustration"><span class="count-pill" id="customer-count">0 pelanggan</span></div></div>
+            <div class="table-wrap"><table><thead><tr><th>NAMA PENYEWA</th><th>NOMOR TELEPON</th><th>TRANSAKSI</th></tr></thead><tbody id="customer-rows"></tbody></table></div>
+          </article>
+          <article class="panel section-panel" id="history">
+            <div class="panel-heading"><div class="heading-art-title"><img src="./assets/illustrations/history.svg" alt="Tumpukan jarik dengan timeline" class="section-illustration"><span><p class="eyebrow">CATATAN STUDIO</p><h2>Riwayat transaksi</h2></span></div><select id="history-filter" aria-label="Filter riwayat"><option value="all">Semua status</option><option value="active">Aktif</option><option value="returned">Selesai</option></select></div>
+            <div class="table-wrap"><table><thead><tr><th>TRANSAKSI</th><th>PENYEWA</th><th>AKTIVITAS</th><th>TANGGAL</th><th>STATUS</th></tr></thead><tbody id="history-rows"></tbody></table></div>
+          </article>
+        </section>
+        <footer class="page-footer"><span>RUANG TARI · STUDIO &amp; KOSTUM</span><span>Kelola koleksi dengan lebih tertata.</span></footer>
+      </main>
+    </div>
+
+    <dialog class="modal" id="costume-dialog">
+      <form id="costume-form" class="modal-form">
+        <div class="modal-heading"><div><p class="eyebrow">KOLEKSI STUDIO</p><h2 id="costume-dialog-title">Tambah kostum</h2></div><button class="close-button" type="button" data-close="costume-dialog" aria-label="Tutup">×</button></div>
+        <input name="id" type="hidden">
+        <label>Nama kostum<input name="name" required maxlength="100" placeholder="Contoh: Kebaya Kartini"></label>
+        <div class="form-row"><label>Kategori<input name="category" required maxlength="60" placeholder="Contoh: Jawa"></label><label>Ukuran<input name="size" maxlength="30" placeholder="S, M, L / All size"></label></div>
+        <div class="form-row"><label>Jumlah stok<input name="stock_total" type="number" min="1" step="1" required value="1"></label><label>Tarif per hari (Rp)<input name="daily_rate" type="number" min="0" step="1000" required placeholder="50000"></label></div>
+        <label>Kondisi<select name="condition"><option>Baik</option><option>Perlu perawatan</option><option>Dalam perbaikan</option></select></label>
+        <p class="form-error" id="costume-error" role="alert"></p>
+        <div class="modal-actions"><button class="button button-outline" type="button" data-close="costume-dialog">Batal</button><button class="button button-dark" id="costume-submit" type="submit">Simpan kostum</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="modal detail-modal" id="costume-detail-dialog">
+      <div class="modal-form">
+        <div class="modal-heading"><div><p class="eyebrow">DETAIL KOLEKSI</p><h2>Perjalanan kostum</h2></div><button class="close-button" type="button" data-close="costume-detail-dialog" aria-label="Tutup">×</button></div>
+        <div id="costume-detail-content"></div>
+      </div>
+    </dialog>
+
+    <dialog class="modal" id="rental-dialog">
+      <form id="rental-form" class="modal-form">
+        <div class="modal-heading"><div><p class="eyebrow">TRANSAKSI BARU</p><h2>Buat penyewaan</h2></div><button class="close-button" type="button" data-close="rental-dialog" aria-label="Tutup">×</button></div>
+        <div class="rental-stepper"><span class="active" data-step-indicator="1">01 <small>Penyewa</small></span><span data-step-indicator="2">02 <small>Kostum</small></span><span data-step-indicator="3">03 <small>Jadwal</small></span><span data-step-indicator="4">04 <small>Konfirmasi</small></span></div>
+        <section class="rental-step" data-rental-step="1"><p class="step-title">Data penyewa</p><label>Nama lengkap<input name="full_name" required maxlength="100" placeholder="Nama penyewa"></label><label>Nomor telepon<input name="phone" required maxlength="30" placeholder="08xxxxxxxxxx" inputmode="tel"></label></section>
+        <section class="rental-step" data-rental-step="2" hidden><p class="step-title">Pilih koleksi yang tersedia</p><label>Cari kostum<input id="rental-costume-search" type="search" placeholder="Nama atau kategori"></label><div class="form-row"><label>Kategori<select id="rental-category-filter"><option value="">Semua kategori</option></select></label><label>Ukuran<select id="rental-size-filter"><option value="">Semua ukuran</option></select></label></div><label>Kostum<select name="costume_id" id="rental-costume" required></select></label><label>Jumlah unit<input name="quantity" id="rental-quantity" type="number" min="1" step="1" required value="1"></label><p class="rate-hint" id="rental-rate-hint">Pilih kostum untuk melihat tarif.</p></section>
+        <section class="rental-step" data-rental-step="3" hidden><p class="step-title">Detail penyewaan</p><label>Tanggal sewa<input name="start_date" id="rental-start-date" type="date" required></label><label>Rencana tanggal kembali<input name="due_date" id="rental-due-date" type="date" required></label><div class="rental-total"><span>Estimasi total sewa</span><strong id="rental-total">Rp0</strong><small>Tarif harian × jumlah unit × hari sewa</small></div></section>
+        <section class="rental-step" data-rental-step="4" hidden><p class="step-title">Periksa ringkasan transaksi</p><div id="rental-summary" class="rental-summary"></div></section>
+        <p class="form-error" id="rental-error" role="alert"></p>
+        <div class="modal-actions"><button class="button button-outline" type="button" data-close="rental-dialog">Batal</button><button class="button button-outline" id="rental-prev" type="button" hidden>Kembali</button><button class="button button-dark" id="rental-next" type="button">Lanjut</button><button class="button button-dark" id="rental-submit" type="submit" hidden>Simpan penyewaan</button></div>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

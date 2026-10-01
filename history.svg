@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
+  <defs>
+    <pattern id="jarik" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#604035"/><path d="M0 6 6 0l6 6-6 6L0 6Z" stroke="#D7B95C" stroke-opacity=".75" stroke-width=".8"/><circle cx="6" cy="6" r="1" fill="#F1E0BE"/></pattern>
+    <filter id="shadow" x="11" y="17" width="140" height="127" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#4A2C24" flood-opacity=".18"/></filter>
+  </defs>
+  <style>
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    .figure-motion { transform-box: fill-box; transform-origin: center; animation: float 3.2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .figure-motion { animation: none; } }
+  </style>
+  <ellipse cx="81" cy="143" rx="50" ry="7" fill="#4A2C24" fill-opacity=".12"/>
+  <g class="figure-motion" filter="url(#shadow)">
+    <path d="M33 72q23-13 48 0v22q-25 13-48 0V72Z" fill="#E9DDC8" stroke="#B08A4B" stroke-width="1.5"/><path d="m38 77 38 13m-3-16L42 91" stroke="#7A2635" stroke-opacity=".62" stroke-width="1.5"/>
+    <path d="M47 55q23-13 47 0v23q-24 13-47 0V55Z" fill="url(#jarik)" stroke="#C9A227" stroke-width="1.5"/><path d="M62 60v18m16-17v17" stroke="#E4C979" stroke-opacity=".7" stroke-width="1.2"/>
+    <path d="M62 39q22-12 43 0v23q-21 12-43 0V39Z" fill="#7A2635" stroke="#C9A227" stroke-width="1.5"/><path d="m69 46 29 12m1-16L70 58" stroke="#E6D2A0" stroke-opacity=".68" stroke-width="1.2"/>
+    <path d="M111 38v77" stroke="#9A7851" stroke-width="2"/><circle cx="111" cy="39" r="5" fill="#C9A227" stroke="#F2DE9C" stroke-width="1.5"/><circle cx="111" cy="68" r="5" fill="#7A2635" stroke="#E8C9A1" stroke-width="1.5"/><circle cx="111" cy="99" r="5" fill="#23483B" stroke="#C6D4C4" stroke-width="1.5"/><path d="M111 39h24m-24 29h19m-19 31h23" stroke="#C9A227" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M25 119h83" stroke="#D0BD9E" stroke-width="1" stroke-dasharray="2 4"/>
+  </g>
+</svg>
